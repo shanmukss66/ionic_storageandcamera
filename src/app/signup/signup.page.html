@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>signup</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<form [formGroup]="reactive_signup" (ngSubmit)="onclickSubmit()">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Name</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">FirstName</ion-label>
+        <ion-input type="text" formControlName="fname" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">lastname</ion-label>
+        <ion-input type="text" formControlName="lname" required></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Contact</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="text" formControlName="email" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Phone</ion-label>
+        <ion-input type="number" formControlName="phone" required></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Credentials</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password" formControlName="password" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Re-Type Password</ion-label>
+        <ion-input type="password" formControlName="con_password" required></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Gender</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-radio-group formControlName="gender">
+        <ion-row > 
+          <ion-col>
+            <ion-item>
+              <ion-label>Male</ion-label>
+              <ion-radio item-left value="male"></ion-radio>
+            </ion-item>
+          </ion-col>
+  
+          <ion-col>
+            <ion-item>
+              <ion-label>Female</ion-label>
+              <ion-radio item-left color="danger" value="female"></ion-radio>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-radio-group>
+    </ion-card-content> 
+  </ion-card>
+  <ion-button type="submit" color="primary" [disabled]="!reactive_signup.valid" expand="block">SignUp</ion-button>
+</form>
+</ion-content>

@@ -1,0 +1,70 @@
+<ion-app>
+  
+  <ion-menu side="start" content-id="main-content" menuId="main-menu">
+    <ion-header style="height: 200px; background-color: rgb(255, 208, 0);" >
+      
+        <img [hidden]="img_hide" style="width: 80px; height: 80px; position: absolute; left: 25px; top:55px;" [src]="photo">
+        <ion-title style="position: absolute; left: 93px; top:75px;">{{fullname}}</ion-title>
+      
+    </ion-header>
+    <ion-footer>
+      <ion-toolbar>
+        <ion-menu-toggle>
+          <ion-item (click)="clearStorage()">
+            <ion-icon name="trash" slot="start"></ion-icon>
+            <ion-label>Clear Storage</ion-label>
+          </ion-item>
+        </ion-menu-toggle>     
+      </ion-toolbar>
+    </ion-footer>
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle>
+          <ion-item routerLink="/home">
+            <ion-icon name="home" slot="start"></ion-icon>
+            <ion-label>DashBoard</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item [hidden]="hide_signin" routerLink="/signin">
+            <ion-icon name="person" slot="start"></ion-icon>
+            <ion-label>SignIn</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item [hidden]="hide_signup" routerLink="/signup">
+            <ion-icon name="person-add" slot="start"></ion-icon>
+            <ion-label>SignUp</ion-label>
+          </ion-item >
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item [hidden]="hide_settings" routerLink="/editprofile">
+            <ion-icon name="settings" slot="start"></ion-icon>
+            <ion-label>Edit Profile</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item [hidden]="hide_signout" (click)="onClickSignout()"  routerLink="/home">
+            <ion-icon name="exit" slot="start"></ion-icon>
+            <ion-label>Sign Out</ion-label>
+          </ion-item >
+        </ion-menu-toggle>
+        
+        
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  
+  <div class="ion-page" id="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Inbox</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    
+  </div>
+  <ion-router-outlet id="main-content"></ion-router-outlet>
+</ion-app>
